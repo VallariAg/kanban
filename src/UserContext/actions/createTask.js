@@ -8,7 +8,8 @@ export default function createTask(userState, taskTitle, boardId) {
         id: taskID, 
         priority: PRIORITY.MEDIUM, 
         title: taskTitle, 
-        description: ""
+        description: "",
+        img: ""
     } 
 
     const newTaskIds = Array.from(board.taskIds);

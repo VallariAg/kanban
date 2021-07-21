@@ -2,13 +2,17 @@ import React, { useState, useContext } from 'react';
 import BoardColumn from "../components/BoardColumn";
 import { DragDropContext } from 'react-beautiful-dnd';
 import { UserContext, ACTIONS } from './../UserContext/UserContext';
+import AddNewBoard from '../components/AddBoard';
+
 
 export default function Main() {
     const { userData, dispatch } = useContext(UserContext);
 
     return (
         <>
-            <div>Boards header</div>
+            <div>
+                <AddNewBoard numOfBoards={userData.num_of_boards} />
+            </div>
             <BoardList userData={userData} dispatch={dispatch} />
         </>
     )

@@ -3,6 +3,7 @@ import { ACTIONS } from "./UserContext";
 import moveTask from "./actions/movetask";
 import moveTaskAcrossBoard from "./actions/moveTaskAcrossBoard";
 import createTask from "./actions/createTask";
+import createBoard from "./actions/createBoard";
 
 
 
@@ -14,6 +15,12 @@ export default function reducer(state, action) {
         const boardId = action.payload.boardId;
 
         return createTask(state, taskTitle, boardId);
+      }
+
+      case ACTIONS.CREATE_BOARD: {
+        const boardTitle = action.payload.title;
+
+        return createBoard(state, boardTitle);
       }
 
       case ACTIONS.MOVE_TASK: {

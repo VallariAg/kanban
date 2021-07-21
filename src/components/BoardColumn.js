@@ -5,7 +5,7 @@ import AddNewTask from './AddTask';
 export default function Board({ tasks, board }) {
 
   return (
-    <div className="w-72 m-2" style={{minHeight: "400px", minWidth: "270px"}}>
+    <div className="w-72 m-2" style={{minHeight: "500px", minWidth: "270px"}}>
         <BoardTitle title={board.title} />
         <Droppable droppableId={board.id}>
           {(provided) => (
@@ -31,9 +31,9 @@ export default function Board({ tasks, board }) {
 
 function BoardTitle({title}) {
   return (
-    <div className="flex flex-column w-full bg-blue-100 p-2">
+    <div className="p-1 px-2 flex flex-column w-full bg-blue-100 p-2">
       <div className="text-gray-800"> {(title).toUpperCase()} </div>
-      <button className="float-right justify-self-end">Edit</button>
+      <button className="float-right">Edit</button>
     </div>
   )
 }
