@@ -1,12 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { PRIORITY } from '../UserContext/UserContext';
 import { ViewListIcon } from "@heroicons/react/outline";
+import TaskModal from "./TaskModal";
+import { taskPriorityClass } from '../constants'; 
 
 export default function TaskCard({ task, index }) {
-    const bgColor = task.priority === PRIORITY.MEDIUM ? "bg-yellow-100": 
-                    (task.priority === PRIORITY.HIGH) ? "bg-red-100": "bg-gray-100";
+    const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
+
     return (
+    <>
       <Draggable draggableId={task.id} index={index}>
         {(provided, snapshot) => (
           <div
@@ -14,7 +17,8 @@ export default function TaskCard({ task, index }) {
             {...provided.dragHandleProps}
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
-            className={`my-2 mx-1 ml-2 ${bgColor}`}
+            className={`my-2 mx-1 ml-2 ${taskPriorityClass(task.priority)} rounded-md`}
+            onClick={() => setIsTaskModalOpen(true)}
           >
             { task.image ? <img 
                               className="h-32 w-full mb-1"
@@ -29,5 +33,7 @@ export default function TaskCard({ task, index }) {
           </div>
         )}
       </Draggable>
+      { isTaskModalOpen ? <TaskModal task={task} setIsModalOpen={setIsTaskModalOpen} />: "" }
+    </>
     )
 }

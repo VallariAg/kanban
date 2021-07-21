@@ -17,10 +17,10 @@ export default function reducer(state, action) {
         return createTask(state, taskTitle, boardId);
       }
 
-      case ACTIONS.CREATE_BOARD: {
-        const boardTitle = action.payload.title;
+      case ACTIONS.UPDATE_TASK: {
+          const updatedTask = action.payload.updatedTask;
 
-        return createBoard(state, boardTitle);
+          return { ...state, tasks: {...state.tasks, [updatedTask.id]: updatedTask} }
       }
 
       case ACTIONS.MOVE_TASK: {
@@ -39,6 +39,12 @@ export default function reducer(state, action) {
         return moveTaskAcrossBoard(state, source, destination, draggableId);
       }
       
+      case ACTIONS.CREATE_BOARD: {
+        const boardTitle = action.payload.title;
+
+        return createBoard(state, boardTitle);
+      }
+
       default:
         throw new Error();
     }

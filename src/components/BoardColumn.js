@@ -31,8 +31,8 @@ export default function Board({ tasks, board }) {
 
 function BoardTitle({title}) {
   return (
-    <div className="p-1 px-2 flex flex-column w-full bg-blue-100 p-2">
-      <div className="text-gray-800"> {(title).toUpperCase()} </div>
+    <div className="py-3 px-2 flex flex-column w-full bg-blue-100">
+      <div className="mx-1 text-gray-800 font-semibold"> {(title).toUpperCase()} </div>
       <button className="float-right">Edit</button>
     </div>
   )

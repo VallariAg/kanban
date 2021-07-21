@@ -50,7 +50,7 @@ function BoardList({userData, dispatch}) {
 
     return (
         <DragDropContext onDragEnd={onTaskDragEnd}>
-            <div className="flex flex-rows">
+            <div className="flex flex-rows" style={{overflowX: "scroll"}}>
             {
                 userData.boardOrder.map((boardID, index) => {
                     const board = userData.boards[boardID];
