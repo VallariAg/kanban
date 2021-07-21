@@ -33,10 +33,10 @@ export const PRIORITY = {
   
 export const initial_user_state = {
     tasks: {
-      'task-1': { id: 'task-1', priority: PRIORITY.MEDIUM, title: 'Take out the garbage' },
-      'task-2': { id: 'task-2', priority: PRIORITY.LOW, title: 'Watch my favorite show' },
-      'task-3': { id: 'task-3', priority: PRIORITY.MEDIUM, title: 'Charge my phone' },
-      'task-4': { id: 'task-4', priority: PRIORITY.HIGH, title: 'Cook dinner' },
+      'task-1': { id: 'task-1', priority: PRIORITY.MEDIUM, title: 'Study', description: "", image: "https://i.pinimg.com/originals/ea/72/d7/ea72d7a743dea32b50002dbae88ad1c5.jpg" },
+      'task-2': { id: 'task-2', priority: PRIORITY.LOW, title: 'Watch shows', description: "good doctor", image: "" },
+      'task-3': { id: 'task-3', priority: PRIORITY.MEDIUM, title: 'Text people', description: "", image: "" },
+      'task-4': { id: 'task-4', priority: PRIORITY.HIGH, title: 'Cry', description: "", image: "" },
     },
     boards: {
       'board-1': {

@@ -4,7 +4,12 @@ export default function createTask(userState, taskTitle, boardId) {
 
     const board = userState.boards[boardId];
     const taskID = String("task-" + userState.num_of_tasks + 1);
-    const newTask = { id: taskID, priority: PRIORITY.MEDIUM, title: taskTitle } 
+    const newTask = { 
+        id: taskID, 
+        priority: PRIORITY.MEDIUM, 
+        title: taskTitle, 
+        description: ""
+    } 
 
     const newTaskIds = Array.from(board.taskIds);
     newTaskIds.splice(0, 0, taskID);
