@@ -45,6 +45,13 @@ export default function reducer(state, action) {
         return createBoard(state, boardTitle);
       }
 
+      case ACTIONS.UPDATE_BOARD: {
+        const boardTitle = action.payload.title;
+        const boardId = action.payload.boardId;
+
+        return { ...state, boards: { ...state.boards, [boardId]: { ...state.boards[boardId], title: boardTitle } } }
+      }
+
       default:
         throw new Error();
     }
