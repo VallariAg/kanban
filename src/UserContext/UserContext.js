@@ -34,9 +34,9 @@ export const PRIORITY = {
 export const initial_user_state = {
     tasks: {
       'task-1': { id: 'task-1', priority: PRIORITY.MEDIUM, title: 'Take out the garbage' },
-      'task-2': { id: 'task-2', priority: PRIORITY.MEDIUM, title: 'Watch my favorite show' },
+      'task-2': { id: 'task-2', priority: PRIORITY.LOW, title: 'Watch my favorite show' },
       'task-3': { id: 'task-3', priority: PRIORITY.MEDIUM, title: 'Charge my phone' },
-      'task-4': { id: 'task-4', priority: PRIORITY.MEDIUM, title: 'Cook dinner' },
+      'task-4': { id: 'task-4', priority: PRIORITY.HIGH, title: 'Cook dinner' },
     },
     boards: {
       'board-1': {
