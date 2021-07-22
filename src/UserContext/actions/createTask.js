@@ -3,7 +3,7 @@ import { PRIORITY } from "../UserContext";
 export default function createTask(userState, taskTitle, boardId) {
 
     const board = userState.boards[boardId];
-    const taskID = String("task-" + userState.num_of_tasks + 1);
+    const taskID = String("task-" + (userState.num_of_tasks + 1));
     const newTask = { 
         id: taskID, 
         priority: PRIORITY.MEDIUM, 

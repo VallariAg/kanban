@@ -3,7 +3,7 @@ import { UserContext, ACTIONS, PRIORITY } from './../UserContext/UserContext';
 import { PlusCircleIcon, XIcon } from "@heroicons/react/outline";
 import { taskPriorityClass } from '../constants';
 
-export default function AddBoardModal({ setIsModalOpen, task }) {
+export default function AddBoardModal({ setIsModalOpen, task, boardId }) {
     const { dispatch } = useContext(UserContext);
     const [taskState, setTaskState] = useState(task);
     
@@ -15,6 +15,15 @@ export default function AddBoardModal({ setIsModalOpen, task }) {
         });
         setIsModalOpen(false);
     }
+
+    const onDeleteTask = () => {
+        dispatch({ 
+            type: ACTIONS.DELETE_TASK, 
+            payload: { boardId, taskId: task.id } 
+        });
+        setIsModalOpen(false);
+    }
+
     return(
     <div className="fixed text-gray-500  flex items-center justify-center overflow-auto z-100 bg-black bg-opacity-40 left-0 right-0 top-0 bottom-0">
         <div className="bg-white p-7 flex flex-col rounded-lg text-black">
@@ -30,8 +39,13 @@ export default function AddBoardModal({ setIsModalOpen, task }) {
                 <LeftSection taskState={taskState} setTaskState={setTaskState} />
                 <RightSection taskState={taskState} setTaskState={setTaskState} /> 
             </div>
-            <button className="bg-indigo-500 text-white rounded w-min py-1 mt-2 self-end px-3"
+
+            <div className="w-full grid grid-cols-2">
+                <button className="hover:bg-red-500 hover:text-white text-red-800 bg-red-100 rounded w-min py-1 mt-2 self-end px-3"
+                        onClick={onDeleteTask}> Delete </button>
+                <button className="bg-indigo-500 text-white rounded w-min py-1 mt-2 justify-self-end px-3"
                         onClick={clickAddBoard}> Save </button>
+            </div>
 
         </div>
     </div>

@@ -21,6 +21,14 @@ export default function BoardTitle({title, boardId}) {
         });
         setisEditMode(false);
     }
+
+    const onDeleteBoard = () => {
+        dispatch({ 
+            type: ACTIONS.DELETE_BOARD, 
+            payload: { boardId } 
+        });
+        setisDropdownOpen(false);
+    }
     return (
       <div className="py-3 px-2 grid grid-cols-4 w-full bg-blue-100">
         { isEditMode ? 
@@ -58,7 +66,7 @@ export default function BoardTitle({title, boardId}) {
                         Sort (High to Low)
                 </li>
                 <li class="rounded-b text-red-800 bg-red-300 hover:bg-red-600 hover:text-white py-2 px-4 block whitespace-no-wrap"
-                    onClick={() => {}}>
+                    onClick={onDeleteBoard}>
                         Delete
                 </li>
               </ul>: ""}

@@ -5,7 +5,7 @@ import { ViewListIcon } from "@heroicons/react/outline";
 import TaskModal from "./TaskModal";
 import { taskPriorityClass } from '../constants'; 
 
-export default function TaskCard({ task, index }) {
+export default function TaskCard({ task, index, boardId }) {
     const [isTaskModalOpen, setIsTaskModalOpen] = useState(false);
 
     return (
@@ -33,7 +33,7 @@ export default function TaskCard({ task, index }) {
           </div>
         )}
       </Draggable>
-      { isTaskModalOpen ? <TaskModal task={task} setIsModalOpen={setIsTaskModalOpen} />: "" }
+      { isTaskModalOpen ? <TaskModal boardId={boardId} task={task} setIsModalOpen={setIsTaskModalOpen} />: "" }
     </>
     )
 }

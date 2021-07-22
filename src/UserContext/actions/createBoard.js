@@ -1,7 +1,7 @@
 
 export default function createBoard(userState, boardTitle) {
 
-    const boardID = String("board-" + userState.num_of_boards + 1);
+    const boardID = String("board-" + (userState.num_of_boards + 1));
     const newBoard = { 
         id: boardID, 
         title: boardTitle, 

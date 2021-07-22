@@ -11,7 +11,7 @@ export default function Main() {
     return (
         <>
             <div>
-                <AddNewBoard numOfBoards={userData.num_of_boards} />
+                <AddNewBoard numOfBoards={userData.boardOrder.length} />
             </div>
             <BoardList userData={userData} dispatch={dispatch} />
         </>

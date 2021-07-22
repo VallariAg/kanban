@@ -17,8 +17,10 @@ export default function UserContextApp({children}) {
 export const ACTIONS = {
     CREATE_TASK: "createTask",
     UPDATE_TASK: "updateTask",
+    DELETE_TASK: "deleteTask",
     CREATE_BOARD: "createBoard",
     UPDATE_BOARD: "updateBoard",
+    DELETE_BOARD: "deleteBoard",
     MOVE_TASK: "moveTask",
     MOVE_TASK_ACROSS_BOARD: "moveTaskAcrossBoard"
 }

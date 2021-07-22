@@ -17,7 +17,7 @@ export default function Board({ tasks, board }) {
             >
               <AddNewTask boardId={board.id} />
               {tasks.map((task, index) => (
-                <TaskCard key={task.id} task={task} index={index} />
+                <TaskCard key={task.id} task={task} index={index} boardId={board.id} />
               ))}
               {provided.placeholder}
             </ul>

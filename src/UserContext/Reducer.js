@@ -4,6 +4,8 @@ import moveTask from "./actions/movetask";
 import moveTaskAcrossBoard from "./actions/moveTaskAcrossBoard";
 import createTask from "./actions/createTask";
 import createBoard from "./actions/createBoard";
+import deleteBoard from "./actions/deleteBoard";
+import deleteTask from "./actions/deleteTask";
 
 
 
@@ -21,6 +23,13 @@ export default function reducer(state, action) {
           const updatedTask = action.payload.updatedTask;
 
           return { ...state, tasks: {...state.tasks, [updatedTask.id]: updatedTask} }
+      }
+
+      case ACTIONS.DELETE_TASK: {
+        const boardId = action.payload.boardId;
+        const taskId = action.payload.taskId;
+
+        return deleteTask(state, taskId, boardId);
       }
 
       case ACTIONS.MOVE_TASK: {
@@ -50,6 +59,12 @@ export default function reducer(state, action) {
         const boardId = action.payload.boardId;
 
         return { ...state, boards: { ...state.boards, [boardId]: { ...state.boards[boardId], title: boardTitle } } }
+      }
+
+      case ACTIONS.DELETE_BOARD: {
+        const boardId = action.payload.boardId;
+
+        return deleteBoard(state, boardId)
       }
 
       default:
