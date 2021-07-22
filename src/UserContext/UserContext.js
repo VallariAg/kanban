@@ -4,7 +4,12 @@ import reducer from "./Reducer";
 export const UserContext = createContext({});
 
 export default function UserContextApp({children}) {
-    const [userData, dispatch] = useReducer(reducer, initial_user_state);
+    
+    const userState = localStorage.kanbanUser ? 
+                        JSON.parse(localStorage.kanbanUser):
+                        initial_user_state;
+
+    const [userData, dispatch] = useReducer(reducer, userState);
 
     return (
         <UserContext.Provider value={{ userData, dispatch }}>

@@ -17,20 +17,26 @@ export default function reducer(state, action) {
         const taskTitle = action.payload.title;
         const boardId = action.payload.boardId;
 
-        return createTask(state, taskTitle, boardId);
+        const newState = createTask(state, taskTitle, boardId);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
 
       case ACTIONS.UPDATE_TASK: {
           const updatedTask = action.payload.updatedTask;
 
-          return { ...state, tasks: {...state.tasks, [updatedTask.id]: updatedTask} }
+          const newState = { ...state, tasks: {...state.tasks, [updatedTask.id]: updatedTask} };
+          localStorage.kanbanUser = JSON.stringify(newState);
+          return newState;
       }
 
       case ACTIONS.DELETE_TASK: {
         const boardId = action.payload.boardId;
         const taskId = action.payload.taskId;
 
-        return deleteTask(state, taskId, boardId);
+        const newState = deleteTask(state, taskId, boardId);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
 
       case ACTIONS.MOVE_TASK: {
@@ -38,7 +44,9 @@ export default function reducer(state, action) {
         const destination = action.payload.destination;
         const draggableId = action.payload.draggableId;
 
-        return moveTask(state, source, destination, draggableId);
+        const newState = moveTask(state, source, destination, draggableId);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
       
       case ACTIONS.MOVE_TASK_ACROSS_BOARD: {
@@ -46,33 +54,43 @@ export default function reducer(state, action) {
         const destination = action.payload.destination;
         const draggableId = action.payload.draggableId;
 
-        return moveTaskAcrossBoard(state, source, destination, draggableId);
+        const newState = moveTaskAcrossBoard(state, source, destination, draggableId);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
 
       case ACTIONS.SORT_TASKS_PRIORITY: {
         const boardId = action.payload.boardId;
         const sortType = action.payload.sortType;
         
-        return sortTaskPrioirty(state, boardId, sortType);
+        const newState = sortTaskPrioirty(state, boardId, sortType);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
       
       case ACTIONS.CREATE_BOARD: {
         const boardTitle = action.payload.title;
 
-        return createBoard(state, boardTitle);
+        const newState = createBoard(state, boardTitle);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
 
       case ACTIONS.UPDATE_BOARD: {
         const boardTitle = action.payload.title;
         const boardId = action.payload.boardId;
 
-        return { ...state, boards: { ...state.boards, [boardId]: { ...state.boards[boardId], title: boardTitle } } }
+        const newState = { ...state, boards: { ...state.boards, [boardId]: { ...state.boards[boardId], title: boardTitle } } }
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
 
       case ACTIONS.DELETE_BOARD: {
         const boardId = action.payload.boardId;
 
-        return deleteBoard(state, boardId)
+        const newState = deleteBoard(state, boardId);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
       }
 
       default:
