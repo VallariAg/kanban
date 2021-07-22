@@ -96,7 +96,7 @@ function RightSection({taskState, setTaskState}) {
     }
     return (
         <div className="mt-1 ml-1">
-            Priority
+            Priority: <span className="text-gray-500">{taskState.priority}</span>
             <div className="mt-2 grid grid-cols-3">
                 <PriorityButton priority={PRIORITY.LOW} />
                 <PriorityButton priority={PRIORITY.MEDIUM} />

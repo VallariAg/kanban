@@ -6,6 +6,7 @@ import createTask from "./actions/createTask";
 import createBoard from "./actions/createBoard";
 import deleteBoard from "./actions/deleteBoard";
 import deleteTask from "./actions/deleteTask";
+import sortTaskPrioirty from "./actions/sortTaskPrioirty";
 
 
 
@@ -46,6 +47,13 @@ export default function reducer(state, action) {
         const draggableId = action.payload.draggableId;
 
         return moveTaskAcrossBoard(state, source, destination, draggableId);
+      }
+
+      case ACTIONS.SORT_TASKS_PRIORITY: {
+        const boardId = action.payload.boardId;
+        const sortType = action.payload.sortType;
+        
+        return sortTaskPrioirty(state, boardId, sortType);
       }
       
       case ACTIONS.CREATE_BOARD: {

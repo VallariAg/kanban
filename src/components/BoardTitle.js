@@ -29,6 +29,14 @@ export default function BoardTitle({title, boardId}) {
         });
         setisDropdownOpen(false);
     }
+
+    const onSortDscBoard = (sortType) => {
+        dispatch({ 
+            type: ACTIONS.SORT_TASKS_PRIORITY, 
+            payload: { boardId, sortType } 
+        });
+        setisDropdownOpen(false);
+    }
     return (
       <div className="py-3 px-2 grid grid-cols-4 w-full bg-blue-100">
         { isEditMode ? 
@@ -47,29 +55,31 @@ export default function BoardTitle({title, boardId}) {
             </div>:
             <div className="mx-1 text-gray-800 col-span-3 font-semibold"> {(boardTitle).toUpperCase()} </div>
         }
-        <div className="col-span-1 justify-self-end">
+        <div className="col-span-1 justify-self-end" 
+            onMouseEnter={() => setisDropdownOpen(!isDropdownOpen)}
+            onMouseLeave={() => setisDropdownOpen(!isDropdownOpen)}>
             <button onClick={() => setisDropdownOpen(!isDropdownOpen)}>
               <DotsVerticalIcon className="ml-2 h-5 w-5 mx-2 text-gray-700 hover:text-black" />
             </button>
             {isDropdownOpen ?
-              <ul class="dropdown-menu absolute text-gray-800 pt-1 x-100">
-                <li class="rounded-t text-gray-800 bg-white hover:bg-gray-700 hover:text-white py-2 px-4 block whitespace-no-wrap"
+              <div class="dropdown-menu absolute text-gray-800 pt-1">
+                <button class="rounded-t w-full text-gray-800 bg-white hover:bg-gray-700 hover:text-white py-2 px-4 block whitespace-no-wrap"
                     onClick={() => { setisEditMode(!isEditMode); setisDropdownOpen(false)} }>
                         Edit
-                </li>
-                <li class="text-gray-800 bg-white hover:bg-gray-700 hover:text-white py-2 px-4 block whitespace-no-wrap"
-                    onClick={() => {}}>
+                </button>
+                <button class="w-full text-gray-800 bg-white hover:bg-gray-700 hover:text-white py-2 px-4 block whitespace-no-wrap"
+                    onClick={() => onSortDscBoard("ascending")}>
                         Sort (Low to High)
-                </li>
-                <li class="text-gray-800 bg-white hover:bg-gray-700 hover:text-white py-2 px-4 block whitespace-no-wrap"
-                    onClick={() => {}}>
+                </button>
+                <button class="w-full text-gray-800 bg-white hover:bg-gray-700 hover:text-white py-2 px-4 block whitespace-no-wrap"
+                    onClick={() => onSortDscBoard("descending")}>
                         Sort (High to Low)
-                </li>
-                <li class="rounded-b text-red-800 bg-red-300 hover:bg-red-600 hover:text-white py-2 px-4 block whitespace-no-wrap"
+                </button>
+                <button class="w-full rounded-b text-red-800 bg-red-300 hover:bg-red-600 hover:text-white py-2 px-4 block whitespace-no-wrap"
                     onClick={onDeleteBoard}>
                         Delete
-                </li>
-              </ul>: ""}
+                </button>
+              </div>: ""}
         </div>
       </div>
     )
