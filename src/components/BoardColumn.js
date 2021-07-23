@@ -12,7 +12,7 @@ export default function Board({ tasks, board }) {
             <ul
               {...provided.droppableProps}
               ref={provided.innerRef}
-              className="bg-gray-800 pb-20 min-h-full px-2"
+              className="bg-gray-200 pb-20 min-h-full px-2"
               style={{maxHeight: "70vh", overflowY: "scroll", maxWidth: "100%"}}
             >
               <AddNewTask boardId={board.id} />

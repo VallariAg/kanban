@@ -1,7 +1,9 @@
 import { useContext, useState } from 'react';
 import { UserContext, ACTIONS, PRIORITY } from './../UserContext/UserContext';
-import { PlusCircleIcon, XIcon } from "@heroicons/react/outline";
+import { XIcon } from "@heroicons/react/outline";
 import { taskPriorityClass } from '../constants';
+import { Button } from '@material-ui/core';
+
 
 export default function AddBoardModal({ setIsModalOpen, task, boardId }) {
     const { dispatch } = useContext(UserContext);
@@ -43,8 +45,11 @@ export default function AddBoardModal({ setIsModalOpen, task, boardId }) {
             <div className="w-full grid grid-cols-2">
                 <button className="hover:bg-red-500 hover:text-white text-red-800 bg-red-100 rounded w-min py-1 mt-2 self-end px-3"
                         onClick={onDeleteTask}> Delete </button>
-                <button className="bg-indigo-500 text-white rounded w-min py-1 mt-2 justify-self-end px-3"
-                        onClick={clickAddBoard}> Save </button>
+                <Button 
+                        variant="contained"
+                        style={{boxShadow: "none", padding: 0, marginTop: 8}} 
+                        className={`justify-self-end`}
+                        onClick={clickAddBoard}> Save </Button>
             </div>
 
         </div>
@@ -95,7 +100,7 @@ function RightSection({taskState, setTaskState}) {
                 />)
     }
     return (
-        <div className="mt-1 ml-1">
+        <div className="my-3 lg:my-1 ml-1">
             Priority: <span className="text-gray-500">{taskState.priority}</span>
             <div className="mt-2 grid grid-cols-3">
                 <PriorityButton priority={PRIORITY.LOW} />

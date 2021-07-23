@@ -1,8 +1,7 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import BoardColumn from "../components/BoardColumn";
 import { DragDropContext } from 'react-beautiful-dnd';
 import { UserContext, ACTIONS } from './../UserContext/UserContext';
-import MainPageHeader from '../components/MainPageHeader';
 
 
 export default function Main() {
@@ -10,9 +9,6 @@ export default function Main() {
 
     return (
         <div className="mx-3">
-            <div>
-                <MainPageHeader numOfBoards={userData.boardOrder.length} numOfTasks={Object.keys(userData.tasks).length} />
-            </div>
             <BoardList userData={userData} dispatch={dispatch} />
         </div>
     )

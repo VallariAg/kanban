@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Draggable } from 'react-beautiful-dnd';
-import { PRIORITY } from '../UserContext/UserContext';
 import { ViewListIcon } from "@heroicons/react/outline";
 import TaskModal from "./TaskModal";
 import { taskPriorityClass } from '../constants'; 
@@ -17,19 +16,20 @@ export default function TaskCard({ task, index, boardId }) {
             {...provided.dragHandleProps}
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
-            className={`my-2 bg-white rounded-md`}
+            className={`my-2 border-0 border-gray-50 hover:shadow-md bg-white rounded-md`}
             onClick={() => setIsTaskModalOpen(true)}
           >
-            <div className={`w-full h-3 ${taskPriorityClass(task.priority)} rounded-sm`}></div>
             { task.image ? <img 
                               className="h-32 w-full mb-1"
                               style={{objectFit: "cover"}}
                               src={task.image} 
                               alt={task.title} />: ""}
             <div className="px-3 py-2">
-              <p className="text-gray-800">{task.title}</p>
+              <p className="text-gray-900 text-gray-700 px-1">{task.title}</p>
               { task.description ? 
-                  <ViewListIcon className="relative text-gray-400 w-5 h-5" />: "" }
+                  <ViewListIcon className="relative text-gray-400 x-1 w-5 h-5" />: 
+                  "" }
+              <p className={`${taskPriorityClass(task.priority)} w-min mt-2 px-2 my-1 rounded-md text-sm`}>{task.priority}</p>
             </div>
           </div>
         )}
