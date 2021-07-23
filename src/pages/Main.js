@@ -2,19 +2,19 @@ import React, { useState, useContext } from 'react';
 import BoardColumn from "../components/BoardColumn";
 import { DragDropContext } from 'react-beautiful-dnd';
 import { UserContext, ACTIONS } from './../UserContext/UserContext';
-import AddNewBoard from '../components/AddBoard';
+import MainPageHeader from '../components/MainPageHeader';
 
 
 export default function Main() {
     const { userData, dispatch } = useContext(UserContext);
 
     return (
-        <>
+        <div className="mx-3">
             <div>
-                <AddNewBoard numOfBoards={userData.boardOrder.length} />
+                <MainPageHeader numOfBoards={userData.boardOrder.length} numOfTasks={Object.keys(userData.tasks).length} />
             </div>
             <BoardList userData={userData} dispatch={dispatch} />
-        </>
+        </div>
     )
 }
 
@@ -50,7 +50,7 @@ function BoardList({userData, dispatch}) {
 
     return (
         <DragDropContext onDragEnd={onTaskDragEnd}>
-            <div className="flex flex-rows" style={{overflowX: "scroll"}}>
+            <div className="flex flex-rows" style={{overflowX: "scroll", height: "80vh"}}>
             {
                 userData.boardOrder.map((boardID, index) => {
                     const board = userData.boards[boardID];

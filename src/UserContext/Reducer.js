@@ -7,6 +7,7 @@ import createBoard from "./actions/createBoard";
 import deleteBoard from "./actions/deleteBoard";
 import deleteTask from "./actions/deleteTask";
 import sortTaskPrioirty from "./actions/sortTaskPrioirty";
+import moveBoard from "./actions/moveBoard";
 
 
 
@@ -89,6 +90,15 @@ export default function reducer(state, action) {
         const boardId = action.payload.boardId;
 
         const newState = deleteBoard(state, boardId);
+        localStorage.kanbanUser = JSON.stringify(newState);
+        return newState;
+      }
+
+      case ACTIONS.MOVE_BOARD: {
+        const boardId = action.payload.boardId;
+        const direction = action.payload.direction;
+
+        const newState = moveBoard(state, boardId, direction);
         localStorage.kanbanUser = JSON.stringify(newState);
         return newState;
       }

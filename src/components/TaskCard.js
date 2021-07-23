@@ -17,9 +17,10 @@ export default function TaskCard({ task, index, boardId }) {
             {...provided.dragHandleProps}
             ref={provided.innerRef}
             isDragging={snapshot.isDragging}
-            className={`my-2 mx-1 ml-2 ${taskPriorityClass(task.priority)} rounded-md`}
+            className={`my-2 bg-white rounded-md`}
             onClick={() => setIsTaskModalOpen(true)}
           >
+            <div className={`w-full h-3 ${taskPriorityClass(task.priority)} rounded-sm`}></div>
             { task.image ? <img 
                               className="h-32 w-full mb-1"
                               style={{objectFit: "cover"}}

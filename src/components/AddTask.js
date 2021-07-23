@@ -17,15 +17,15 @@ export default function AddNewTask({boardId}) {
         setNewTaskTitle("")
     }
     return(
-     <div className="flex flex-cols w-full mt-1 mx-2">
+     <div className="grid grid-cols-10 mt-1">
         <input 
-            className="mr-1 w-60 shadow-gray-100 shadow-mg bg-gray-50 text-gray-800 p-1 mt-1 mb-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-100 focus:border-transparent rounded"
+            className="mr-1 col-span-9 pl-2 shadow-gray-100 shadow-mg bg-gray-50 text-gray-800 p-1 mt-1 mb-2 bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-100 focus:border-transparent rounded"
             placeholder="new task" 
             value={newTaskTitle} 
             onChange={(e) => setNewTaskTitle(e.target.value)}
             onKeyPress={(e) => (e.key === 'Enter') ? clickAddTask() : null} />
-        <button className="self-center mr-1 justify-self-end" onClick={clickAddTask}>
-            <PlusIcon className="relative text-gray-600 self-center w-5 h-5" /> 
+        <button className="self-center justify-self-end" onClick={clickAddTask}>
+            <PlusIcon className="relative text-white self-center w-6 h-6" /> 
         </button>
      </div>
     )

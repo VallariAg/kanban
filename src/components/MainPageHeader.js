@@ -1,15 +1,18 @@
 import { useContext, useState } from 'react';
-import { UserContext, ACTIONS } from './../UserContext/UserContext';
-import { PlusCircleIcon, XIcon } from "@heroicons/react/outline";
+import { UserContext, ACTIONS } from '../UserContext/UserContext';
+import { PlusIcon, XIcon } from "@heroicons/react/outline";
 
 
-export default function AddNewBoard({numOfBoards}) {
+export default function MainPageHeader({numOfBoards, numOfTasks}) {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     return(
-     <div className="flex flex-columns"> 
-        <button onClick={() => setIsModalOpen(!isModalOpen)}>
-            <PlusCircleIcon className="relative self-center w-7 h-7" />            
+     <div className="w-full justify-end flex flex-cols py-2 px-2">
+         <div className="mx-2 text-xl self-center">Boards: {numOfBoards}</div>
+         <div className="mx-2 text-xl self-center">Tasks: {numOfTasks}</div>
+        <button onClick={() => setIsModalOpen(!isModalOpen)} 
+                className="flex flex-cols bg-gray-700 hover:bg-gray-800 text-white rounded-3xl mx-2 justify-self-end p-3">
+            <PlusIcon className="relative self-center w-5 h-5" />            
         </button>
         { isModalOpen ? <AddBoardModal numOfBoards={numOfBoards} setIsModalOpen={setIsModalOpen} />: "" }
      </div>

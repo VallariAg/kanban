@@ -27,6 +27,7 @@ export const ACTIONS = {
     UPDATE_BOARD: "updateBoard",
     DELETE_BOARD: "deleteBoard",
     MOVE_TASK: "moveTask",
+    MOVE_BOARD: "moveBoard",
     MOVE_TASK_ACROSS_BOARD: "moveTaskAcrossBoard",
     SORT_TASKS_ASC_PRIORITY: "sortTasksInAscPriority",
     SORT_TASKS_PRIORITY: "sortTasksInDscPriority",
