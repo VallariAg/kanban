@@ -8,7 +8,7 @@ export default function Main() {
     const { userData, dispatch } = useContext(UserContext);
 
     return (
-        <div className="mx-3">
+        <div className="mx-1">
             <BoardList userData={userData} dispatch={dispatch} />
         </div>
     )

@@ -11,11 +11,11 @@ export default function Header() {
     const [isModalOpen, setIsModalOpen] = useState(false)
 
     return( 
-     <div className="w-full border-b-2 grid grid-cols-2 border-gray-200 py-2 px-2">
+     <div className="w-full border-b-2 grid grid-cols-3 border-gray-200 py-2 px-2">
          <div className="text-2xl self-center mx-4 justify-self-start">Kanban</div>
-        <div className="justify-end flex flex-cols">
-            <div className="mx-2 text-xl self-center ">Boards: {numOfBoards}</div>
-            <div className="mx-2 text-xl self-center">Tasks: {numOfTasks}</div>
+        <div className="justify-end col-span-2 flex flex-cols">
+            <div className="mx-2 text-gray-600 text-xl self-center">Boards: {numOfBoards}</div>
+            <div className="mx-2 text-gray-600 text-xl self-center">Tasks: {numOfTasks}</div>
             <IconButton onClick={() => setIsModalOpen(!isModalOpen)} >
                 <PlusIcon className="relative self-center w-5 h-5" />            
             </IconButton>

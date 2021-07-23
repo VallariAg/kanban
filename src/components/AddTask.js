@@ -19,7 +19,7 @@ export default function AddNewTask({boardId}) {
     return(
      <div className="grid grid-cols-10 mt-1 bg-gray-50 rounded-xl">
         <input 
-            className="mr-1 col-span-9 pl-3 bg-transparent text-gray-800 p-1 mt-1 mb-2 rounded"
+            className="mr-1 col-span-9 pl-3 bg-transparent text-gray-800 p-1 mt-1 mb-2 rounded focus:outline-none"
             placeholder="new task" 
             value={newTaskTitle} 
             onChange={(e) => setNewTaskTitle(e.target.value)}

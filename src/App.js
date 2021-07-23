@@ -1,6 +1,8 @@
 import Main from "./pages/Main";
 import UserContextApp from "./UserContext/UserContext";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 
 export default function App() {
     
@@ -9,6 +11,7 @@ export default function App() {
         <div>
           <Header />
           <Main />
+          <Footer />
         </div>
       </UserContextApp>
   );

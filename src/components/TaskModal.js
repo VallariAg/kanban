@@ -61,7 +61,7 @@ function LeftSection({taskState, setTaskState}) {
     return (
         <div class="grid grid-cols-1 w-full col-span-2 pr-5">
             <input 
-                className="mb-1 py-1 px-2 text-xl focus:outline-none focus:ring-2 focus:ring-gray-200 focus:border-transparent rounded-lg"
+                className="mb-1 py-1 px-2 text-xl focus:text-gray-800 focus:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-gray-100 focus:border-transparent rounded-lg"
                 value={taskState.title} 
                 onChange={(e) => setTaskState({...taskState, title: e.target.value})}
                  />

@@ -5,7 +5,7 @@ import BoardTitle from './BoardTitle';
 
 export default function Board({ tasks, board }) {
   return (
-    <div className="w-72 m-2" style={{maxHeight: "90%", minWidth: "270px"}}>
+    <div className="w-72 my-2 mx-1" style={{maxHeight: "90%", minWidth: "270px"}}>
         <BoardTitle title={board.title} boardId={board.id} />
         <Droppable droppableId={board.id}>
           {(provided) => (

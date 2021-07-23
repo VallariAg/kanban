@@ -85,23 +85,23 @@ export default function BoardTitle({title, boardId}) {
                     <div className="col-span-1 justify-self-end">
                         <button onClick={(e) => {setisDropdownOpen(!isDropdownOpen); setMenuButton(e.target)}}>
                           <DotsVerticalIcon className="ml-2 h-5 w-5 mx-2 text-gray-600 hover:text-black" />
-                        </button>
+                        </button> 
+                        <Menu
+                          keepMounted
+                          open={isDropdownOpen}
+                          className="m-0 lg:-ml-36 lg:mt-8 -ml-8 mt-8"
+                          onClose={() => setisDropdownOpen(false)}
+                          anchorEl={menuButton}
+                        >
+                          <MenuItem onClick={() => {setisEditMode(!isEditMode); setisDropdownOpen(false);}}>Edit</MenuItem>
+                          <MenuItem onClick={() => onSortDscBoard("ascending")}>Sort (low to high)</MenuItem>
+                          <MenuItem onClick={() => onSortDscBoard("descending")}>Sort (high to low)</MenuItem>
+                          <MenuItem onClick={onDeleteBoard}>Delete</MenuItem>
+                        </Menu>
                     </div>
                 </div>
             </>}
       </div>
-      <Menu
-        keepMounted
-        open={isDropdownOpen}
-        className="m-0 lg:-ml-36 lg:mt-8 -ml-8 mt-8"
-        onClose={() => setisDropdownOpen(false)}
-        anchorEl={menuButton}
-      >
-        <MenuItem onClick={() => {setisEditMode(!isEditMode); setisDropdownOpen(false);}}>Edit</MenuItem>
-        <MenuItem onClick={() => onSortDscBoard("ascending")}>Sort (low to high)</MenuItem>
-        <MenuItem onClick={() => onSortDscBoard("descending")}>Sort (high to low)</MenuItem>
-        <MenuItem onClick={onDeleteBoard}>Delete</MenuItem>
-      </Menu>
     </>
   )
 }
