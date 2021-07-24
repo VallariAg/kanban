@@ -21,7 +21,7 @@ Features:
 
 - Boards
 
-    Add a board. Edit board titles. Move boards to right and left.
+    Add a board. Edit board titles. Move boards to right and left. Sort tasks by priority in a board.
 
     ![](./boards-demo.gif)
 
